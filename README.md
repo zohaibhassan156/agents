@@ -53,9 +53,10 @@ npm run build
 php artisan serve
 ```
 
-**agent password for all:** agent123
-
 **agent emails:** agent_1@agent.com
+
 **agent emails:** agent_2@agent.com
 
-each agent have about 10 customers
+**agent password for both:** agent123
+
+each agent have about 5 customers

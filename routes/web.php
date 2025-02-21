@@ -13,6 +13,6 @@ Route::group(['middleware' => 'auth'], function () {
 });
 
 Route::group(['middleware' => 'auth:customers'], function () {
-    Route::get('customer/{customer}', [HomeController::class, 'customer'])->name('customer');
+    Route::get('customer/', [HomeController::class, 'customer'])->name('customer');
 });
 

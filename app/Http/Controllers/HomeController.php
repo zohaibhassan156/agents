@@ -3,44 +3,30 @@
 namespace App\Http\Controllers;
 
 use App\Models\Customer;
-use Illuminate\Auth\Authenticatable;
-use Illuminate\Http\Request;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    public function index(): View
     {
-        $this->middleware('auth');
-    }
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-    public function index()
-    {
-        $customers = Customer::where('agent_id', auth()->id())->get();
+        $customers = auth()->user()->customers;
 
         return view('home', compact('customers'));
     }
 
-    public function customerLogin(Customer $customer)
+    public function customerLogin(Customer $customer): RedirectResponse
     {
-        if($customer->agent_id != auth()->id()) {
-            return abort(403);
+        if(! auth()->user()->customers->contains($customer)) {
+            abort(403);
         }
 
         auth('customers')->login($customer);
 
-        return redirect()->route('customer', [$customer->id]);
+        return redirect()->route('customer');
     }
-    public function customer()
+
+    public function customer(): View
     {
         $customer = Customer::find(auth('customers')->id());
 
