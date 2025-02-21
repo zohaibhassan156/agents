@@ -50,3 +50,10 @@ npm run build
 ```console
 php artisan serve
 ```
+
+**agent password for all:** agent123
+
+**agent emails:** agent_1@agent.com
+**agent emails:** agent_2@agent.com
+
+each agent have about 10 customers
