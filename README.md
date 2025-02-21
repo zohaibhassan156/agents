@@ -10,15 +10,18 @@
 ## Steps to Install
 
 **softwares required**
+```console
 
 php: 8.2
 node: v22.13.1
 npm: 11.1.0
+```
 
 
 **clone repo:**
-
+```console
 git clone git@github.com:zohaibhassan156/agents.git
+```
 
 **change to project dir**
 
@@ -26,19 +29,24 @@ cd agents
 
 **composer/php commands required**
 
+```console
 composer install
 cp .env.example .env
 php artisan key:generate
 php artisan migrate --seed
+```
 
 ==> select **yes** for sqlite database
 
 **node commands required**
 
+```console
 npm i -f
 npm run build
-
+```
 
 **check in browser**
-php artisan serve
 
+```console
+php artisan serve
+```
