@@ -25,7 +25,9 @@ git clone git@github.com:zohaibhassan156/agents.git
 
 **change to project dir**
 
+```console
 cd agents
+```
 
 **composer/php commands required**
 
